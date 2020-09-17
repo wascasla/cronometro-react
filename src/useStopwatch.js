@@ -21,7 +21,7 @@ export default function useStopwatch(settings) {
     if (!intervalRef.current) {
       setIsRunning(true);
       //intervalRef.current = setInterval(() => setSeconds((prevSeconds) => (prevSeconds + 1)), 1/1000);
-      intervalRef.current = setInterval(() => setSeconds((prevSeconds) => (prevSeconds + 1)), 1);
+      intervalRef.current = setInterval(() => setSeconds((prevSeconds) => (prevSeconds + 1)), 10);
     }
   }
 
@@ -46,6 +46,7 @@ export default function useStopwatch(settings) {
   }, []);
 
   return {
-    ...Time.getTimeFromSeconds(seconds), start, pause, reset, isRunning,
+    //...Time.getTimeFromSeconds(seconds), start, pause, reset, isRunning,
+    ...Time.getTimeFromSeconds2(seconds), start, pause, reset, isRunning,
   };
 }

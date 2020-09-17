@@ -15,6 +15,37 @@ export default class Time {
           milliSeconds
         };
       }
+
+
+      static getTimeFromSeconds2(totalSeconds) {
+        let diffInHrs = totalSeconds / 3600000;
+        const days = Math.floor(totalSeconds / (60 * 60 * 24));
+
+        const hours = Math.floor(diffInHrs);
+        
+        let diffInMin = (diffInHrs - hours) * 60;
+
+        const minutes = Math.floor(diffInMin);
+
+        let diffInSec = (diffInMin - minutes) * 60;
+
+
+        const seconds = Math.floor(diffInSec);
+
+        let diffInMs = (diffInSec - seconds) * 100;
+
+
+        //const seconds = ("0" + (Math.floor(totalSeconds % ( 1000 * 60)) / 1000));
+        const milliSeconds = (Math.floor(diffInMs));
+    
+        return {
+          seconds,
+          minutes,
+          hours,
+          days,
+          milliSeconds
+        };
+      }
 }
 
 
